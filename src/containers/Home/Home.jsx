@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react';
 import Card from '../../components/Card/Card';
+import Footer from '../../components/Footer/Footer';
 import './Home.css';
 
 export const PokemonContext = createContext();
@@ -34,15 +35,24 @@ const Home = () => {
   useEffect(() => {
     getPokemons();
   }, []);
+
+  useEffect(()=>{
+    setIsLoading(true)
+    getPokemons()
+  },[currentUrl])
   return (
-    <PokemonContext.Provider value={{}}>
+    <PokemonContext.Provider value={{pokList, setCurrentUrl}}>
       <div className="home-container-root">
         {!isLoading ? (
-        <div className="home-container">
-            {pokList.results.map((pokemon)=>(
-                <Card info={pokemon}/>
+          <div className="home-container">
+            {pokList.results.map((pokemon) => (
+              <Card info={pokemon} />
             ))}
-        </div>) : <span>Loading...</span>}
+          </div>
+        ) : (
+          <span>Loading...</span>
+        )}
+        <Footer/>
       </div>
     </PokemonContext.Provider>
   );
