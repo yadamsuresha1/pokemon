@@ -9,7 +9,7 @@ export const PokemonContext = createContext();
 const Home = () => {
   const [pokList, setPokList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [itemsPerPage,setItemsPerPage]=useState(20)
+  const [itemsPerPage, setItemsPerPage] = useState(20);
   const [currentUrl, setCurrentUrl] = useState(
     `https://pokeapi.co/api/v2/pokemon?limit=${itemsPerPage}&offset=0`
   );
@@ -38,19 +38,23 @@ const Home = () => {
     getPokemons();
   }, []);
 
-  useEffect(()=>{
-    setIsLoading(true)
-    getPokemons()
-  },[currentUrl,itemsPerPage])
+  useEffect(() => {
+    setIsLoading(true);
+    getPokemons();
+  }, [currentUrl, itemsPerPage]);
 
-  useEffect(()=>{
-    setCurrentUrl(`https://pokeapi.co/api/v2/pokemon?limit=${itemsPerPage}&offset=0`)
-  },[itemsPerPage])
+  useEffect(() => {
+    setCurrentUrl(
+      `https://pokeapi.co/api/v2/pokemon?limit=${itemsPerPage}&offset=0`
+    );
+  }, [itemsPerPage]);
 
   return (
-    <PokemonContext.Provider value={{pokList, setCurrentUrl,itemsPerPage,setItemsPerPage}}>
+    <PokemonContext.Provider
+      value={{pokList, setCurrentUrl, itemsPerPage, setItemsPerPage,setPokList}}
+    >
       <div className="home-container-root">
-          <Header showPerPage={false}/>
+        <Header showPerPage={false} showSearchBar={true} />
         {!isLoading ? (
           <div className="home-container">
             {pokList.results.map((pokemon) => (
@@ -60,7 +64,7 @@ const Home = () => {
         ) : (
           <span>Loading...</span>
         )}
-        <Footer/>
+        <Footer />
       </div>
     </PokemonContext.Provider>
   );

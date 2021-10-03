@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {PokemonContext} from '../../containers/Home/Home';
+import Search from '../Search/Search';
 import './Footer.css';
 
-const Footer = ({showPerPage = true}) => {
+const Footer = ({showPerPage = true, showSearchBar=false}) => {
   const PokemonData = useContext(PokemonContext);
   console.log('pokemon data', PokemonData);
   const {next, previous} = PokemonData.pokList;
@@ -20,6 +21,13 @@ const Footer = ({showPerPage = true}) => {
     <div className="footer-container">
       {PokemonData ? (
         <div>
+          {showSearchBar ? (
+            <>
+              <Search />
+            </>
+          ) : (
+            ''
+          )}
           {showPerPage ? (
             <>
               <label for="itemsPerPage">Pokemon's per page</label>

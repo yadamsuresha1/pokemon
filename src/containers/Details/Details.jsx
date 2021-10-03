@@ -9,7 +9,7 @@ const Details = () => {
     return (
       <div>
         <div className="back-button" onClick={()=>history.goBack()}>
-           {"< Go to home page"}
+           {"< "}
         </div>
         <div className="details-container">
           <h3>{fullDetails.name}</h3>
