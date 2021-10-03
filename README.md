@@ -2,7 +2,7 @@
 
 This project was created for the test.
 
-## Available Scripts
+## NOTES
 
 In the project directory, you can install and run project:
 
