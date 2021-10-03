@@ -1,0 +1,25 @@
+.details-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: rgb(173, 28, 161);;
+    margin: auto;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.back-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgb(173, 28, 161);
+    width: 200px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    position: fixed;
+    cursor: pointer;
+    top: 10px;
+    align-items: center;
+}
