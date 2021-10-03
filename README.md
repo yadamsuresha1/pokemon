@@ -17,3 +17,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### Demo Images
 
 ![Home page](src/images/home.PNG?raw=true "Home page")
+![Details page](src/images/details.PNG?raw=true "Details page")
